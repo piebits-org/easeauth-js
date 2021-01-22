@@ -1,6 +1,6 @@
 {
   "name": "@piebits/easeauth",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "javascript library that is supposed to integrate with EaseAuth (Piebits Cloud Product)",
   "main": "lib\\commonjs\\index.js",
   "module": "lib\\module\\index.js",
