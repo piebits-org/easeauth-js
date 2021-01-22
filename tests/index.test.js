@@ -1,4 +1,4 @@
-const {ea} = require('../dist')
+const {ea} = require('../lib/commonjs')
 
 test('configure', () => {
   ea.configure({
@@ -13,13 +13,6 @@ test('emailpass signup', async () => {
   })
 })
 
-test('check props', async () => {
-  console.log(`loggedin = ${ea.store.loggedin}`)
-  console.log(`access_token = ${ea.store.tokens.access_token}`)
-  console.log(`refresh_token = ${ea.store.tokens.refresh_token}`)
-  console.log(`user = ${JSON.stringify(ea.store.user)}`)
-})
-
 test('logout method', async() => {
   await ea.actions.logout().catch((e) => console.log(e))
 })
@@ -29,13 +22,6 @@ test('emailpass signin', async () => {
     email: 'testuser@piebits.org',
     password: '@TRIPLEc121'
   })
-})
-
-test('check props', async () => {
-  console.log(`loggedin = ${ea.store.loggedin}`)
-  console.log(`access_token = ${ea.store.tokens.access_token}`)
-  console.log(`refresh_token = ${ea.store.tokens.refresh_token}`)
-  console.log(`user = ${JSON.stringify(ea.store.user)}`)
 })
 
 test('refresh method', async() => {
