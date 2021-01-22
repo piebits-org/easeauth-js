@@ -1,13 +1,16 @@
 import axios, { AxiosInstance } from "axios";
+import { EventEmitter } from "events";
 import { STORE } from "../store";
 import { remove_tokens, set_tokens } from "../utils/tokens";
 
 export class ACTIONS {
-  public store: STORE
-  public axios_instance: AxiosInstance
+  private store: STORE
+  private events: EventEmitter
+  private axios_instance: AxiosInstance
 
-  constructor (store: STORE) {
+  constructor (store: STORE, events: EventEmitter) {
     this.store = store
+    this.events = events
     this.axios_instance = axios.create({
       baseURL: 'https://easeauth.cloud.piebits.org',
       timeout: 10000
@@ -67,7 +70,9 @@ export class ACTIONS {
       this.store.tokens.access_token = undefined
       this.store.tokens.refresh_token = undefined
       this.store.loggedin = false
+      this.events.emit('AUTH_STATE_CHANGE', {loggedin: this.store.loggedin})
     } catch (e) {
+      this.events.emit('AUTH_STATE_CHANGE', {loggedin: this.store.loggedin})
       Promise.reject(e)
     }
   }
