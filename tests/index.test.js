@@ -2,15 +2,31 @@ const {ea} = require('../lib/commonjs')
 
 test('configure', () => {
   ea.configure({
-    app_uname: 'Test-e56e4bef'
+    app_uname: 'test-36c6ba14'
   })
 })
 
 test('emailpass signup', async () => {
-  await ea.emailpass.signup({
-    email: 'testuser@piebits.org',
-    password: '@TRIPLEc121'
-  })
+  try {
+    await ea.emailpass.signup({
+      email: 'testuser@piebits.org',
+      password: 'testuser123456',
+      providerData: {
+        name: 'testuser',
+        given_name: 'test',
+        family_name: 'user',
+        nickname: 'testuser',
+        preferred_username: 'testuser',
+        birthdate: '2000-12-12',
+        gender: 'other'
+      },
+      customData: {
+        username: 'testuser'
+      }
+    })
+  } catch (e) {
+    console.log(e.response)
+  }
 })
 
 test('logout method', async() => {
@@ -20,7 +36,7 @@ test('logout method', async() => {
 test('emailpass signin', async () => {
   await ea.emailpass.signin({
     email: 'testuser@piebits.org',
-    password: '@TRIPLEc121'
+    password: 'testuser123456'
   })
 })
 
