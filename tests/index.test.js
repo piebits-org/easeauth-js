@@ -44,7 +44,21 @@ test('refresh method', async() => {
   await ea.actions.refresh().catch((e) => console.log(e))
 })
 
-
 test('getuser method', async() => {
   await ea.actions.getuser().catch((e) => console.log(e))
+})
+
+test('resetpass method', async() => {
+  await ea.actions.resetpass('testuser123456', 'newpass123456').catch((e) => console.log(e))
+})
+
+test('logout method', async() => {
+  await ea.actions.logout().catch((e) => console.log(e))
+})
+
+test('emailpass signin', async () => {
+  await ea.emailpass.signin({
+    email: 'testuser@piebits.org',
+    password: 'newpass123456'
+  })
 })

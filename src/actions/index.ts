@@ -76,4 +76,17 @@ export class ACTIONS {
       Promise.reject(e)
     }
   }
+
+  public async resetpass(old_password: string, new_password: string): Promise<void> {
+    try {
+      await this.axios_instance.post('/actions/resetpass', { old_password, new_password }, {
+        headers: {
+          'Authorization': `Bearer ${this.store.tokens.access_token}`,
+          'x-pc-app': this.store._config?.app_uname
+        }
+      })
+    } catch (e) {
+      Promise.reject(e)
+    }
+  }
 }
