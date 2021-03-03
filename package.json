@@ -2,9 +2,9 @@
   "name": "@piebits/easeauth",
   "version": "0.4.0",
   "description": "javascript library that is supposed to integrate with EaseAuth (Piebits Cloud Product)",
-  "main": "lib\\commonjs\\index.js",
-  "module": "lib\\module\\index.js",
-  "types": "lib\\typescript\\index.d.ts",
+  "main": "lib/commonjs/index.js",
+  "module": "lib/module/index.js",
+  "types": "lib/typescript/src/index.d.ts",
   "scripts": {
     "lint": "eslint --ext .ts",
     "test": "jest --coverage",
@@ -38,7 +38,7 @@
     "@typescript-eslint/parser": "^4.14.0",
     "eslint": "^7.18.0",
     "jest": "^26.6.3",
-    "react-native-builder-bob": "^0.17.1",
+    "react-native-builder-bob": "^0.18.0",
     "typescript": "^4.1.3"
   },
   "dependencies": {
@@ -50,7 +50,7 @@
   "peerDependencies": {
     "@react-native-async-storage/async-storage": "^1.13.3"
   },
-  "react-native": "src\\index.ts",
+  "react-native": "src/index.ts",
   "files": [
     "src",
     "lib",
